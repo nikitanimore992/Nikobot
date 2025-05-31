@@ -8,4 +8,4 @@ const DashboardPage = ()=> {
         </>
     )
 }
-export default DashdoardPage;
+export default DashboardPage;
