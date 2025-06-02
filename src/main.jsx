@@ -6,7 +6,10 @@ import Homepage from './routes/homepage/homepage.jsx';
 import DashboardPage from './routes/dashboardPage/DashboardPage.jsx';
 import ChatPage from './routes/chatpage/Chatpage.jsx';
 import RootLayout from './layouts/rootLayout/RootLayout.jsx';
+import DashboardLayout from './layouts/dashboardLayout/DashboardLayout.jsx';
+import { ClerkProvider } from '@clerk/clerk-react';
 
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const router = createBrowserRouter([
   
   // {
@@ -23,15 +26,30 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
+      },
+      {
+        element: <DashboardLayout/>,
+        children:[
+          {
+          path:"/dashboard",
+          element:<DashboardPage/>
+          },
+          {
+          path:"/dashboard/chats/:id",
+          element:<ChatPage/>
+            
+          }
+        ]
       }
     ]
-
   }
 
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </React.StrictMode>
 );

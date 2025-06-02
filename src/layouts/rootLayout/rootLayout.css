@@ -1,0 +1,32 @@
+.rootlayout{
+    padding: 16px 64px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    header{
+        display: flex;
+        align-content:  center;
+        justify-content: space-between;
+
+        .logo{
+            display: flex;
+            align-items:center;
+            font-weight: bold;
+            gap: 8px;
+
+
+            img{
+                width: 32px;
+                height: 32px;
+            }
+        }
+        
+    }
+    main{
+        /* background-color: aqua; */
+        flex: 1;
+        overflow: hidden;
+    }
+
+}
