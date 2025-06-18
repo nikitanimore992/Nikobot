@@ -7,7 +7,9 @@ import DashboardPage from './routes/dashboardPage/DashboardPage.jsx';
 import ChatPage from './routes/chatpage/Chatpage.jsx';
 import RootLayout from './layouts/rootLayout/RootLayout.jsx';
 import DashboardLayout from './layouts/dashboardLayout/DashboardLayout.jsx';
-import { ClerkProvider } from '@clerk/clerk-react';
+import SignInPage from './routes/signInPage/SignInPage.jsx';
+import SignUpPage from './routes/singUpPage/SignUpPage.jsx';
+// import { ClerkProvider } from '@clerk/clerk-react';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const router = createBrowserRouter([
@@ -28,6 +30,15 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
+        path: "/sing-in/*",
+        element: <SignInPage />,
+      },
+      {
+        path: "/sign-up/*",
+        element: <SignUpPage />,
+      },
+
+      {
         element: <DashboardLayout/>,
         children:[
           {
@@ -47,9 +58,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+  <React.StrictMode>
       <RouterProvider router={router} />
-    </ClerkProvider>
-  </StrictMode>
+  </React.StrictMode>
 );

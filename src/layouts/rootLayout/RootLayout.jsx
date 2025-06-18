@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import './rootLayout.css';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
 
 // Import your Publishable Key
@@ -12,6 +12,7 @@ if (!PUBLISHABLE_KEY) {
 
 const RootLayout = ()=> {
     return(
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
         <div className='rootlayout'>
         <header>
             <Link to="/" className='logo'>
@@ -20,12 +21,12 @@ const RootLayout = ()=> {
 
             </Link>
             <div className='user'>
-            <SignedOut>
-                <SignInButton />
-            </SignedOut>
-            <SignedIn>
-                <UserButton />
-            </SignedIn>
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
             </div>
         </header>
         <header>
@@ -34,6 +35,7 @@ const RootLayout = ()=> {
             </main>
         </header>  
        </div> 
+       </ClerkProvider>
     );
 }
 export default RootLayout;
