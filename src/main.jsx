@@ -2,7 +2,7 @@ import React, { StrictMode } from 'react';
 import  ReactDOM from 'react-dom/client';
 import './index.css'; 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Homepage from './routes/homepage/homepage.jsx';
+import Homepage from './routes/homepage/Homepage.jsx';
 import DashboardPage from './routes/dashboardPage/DashboardPage.jsx';
 import ChatPage from './routes/chatpage/Chatpage.jsx';
 import RootLayout from './layouts/rootLayout/RootLayout.jsx';
