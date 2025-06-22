@@ -21,9 +21,9 @@ const RootLayout = ()=> {
 
             </Link>
             <div className='user'>
-                 <SignedOut>
+                 {/* <SignedOut>
                     <SignInButton />
-                </SignedOut> 
+                </SignedOut>  */}
                  {/*rightnow we dont need this button thats why this button is in comment*/ }
                 <SignedIn>
                     <UserButton />
